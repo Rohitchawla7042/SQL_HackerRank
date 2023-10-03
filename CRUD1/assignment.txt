@@ -1,0 +1,191 @@
+Q1. Find Customer Referee
+SQL
+Solved
+feature icon
+Using hints is now penalty free
+Use Hint
+Write an SQL query to fetch the names of the customer that are not referred by the customer with id = 102.
+
+
+Table: customer
+
+
+
+
+Sample Input:
+Test Case 1
+
+Sample Output:
+Output
+
+Explanation: Only customers Gwenneth and Daryl are referred with id=102
+
+
+/* YOUR QUERY GOES HERE
+   Example: SELECT * FROM EMPLOYEE; 
+*/
+
+SELECT name FROM customer where referee_id != 102 ; 
+
+
+Q2. Find Customers With Positive Revenue this Year
+SQL
+Solved
+feature icon
+Using hints is now penalty free
+Use Hint
+Write an SQL query to report the unique customers with postive revenue in the year 2021.
+
+Table: Customers
+
+
+
+Sample Input:
+Test Case 1
+
+Sample Output:
+Output 
+
+Explanation: Only customer_id 100 has positive revenue in the year 2021
+
+
+
+
+/* YOUR QUERY GOES HERE
+   Example: SELECT * FROM EMPLOYEE; 
+*/
+
+SELECT DISTINCT customer_id 
+FROM customers 
+where revenue > 0 AND year = 2021 ; 
+
+Q3. New Salary
+SQL
+Solved
+feature icon
+Using hints is now penalty free
+Use Hint
+Problem Description:
+
+Write a query to calculate the salary of all employees after an increment of 20%. Save the newly calculated salary column as 'New_salary'.
+
+Table: employees
+
+Schema
+
+Note:
+
+Return the columns emp_id, name, salary, and 'New_salary'.
+Order the output by the emp_id in ascending order.
+Steps to calculate the salary increment:
+
+Multiply the current salary by the percentage of the increment.
+Divide the result by 100.
+Then add the result to the current salary.
+Name the column as 'New_Salary'
+Round off the 'New_salary'.
+
+Sample Input:
+
+Table: employees
+
+
+
+Sample Output:
+
+
+
+Explanation: The New salary for Luis can be calculated as 6142+(0.2*6142) = 7370. In a similar manner, the New_salary is calculated for each employee.
+
+/* YOUR QUERY GOES HERE
+   Example: SELECT * FROM employees; 
+*/
+
+select emp_id , name , salary ,
+ROUND((((salary * 20)/100)+salary)) AS New_salary
+from employees 
+order by emp_id ; 
+
+-- select emp_id , name , salary ,
+-- ROUND((((salary * 20)/100)+salary)) AS New_salary
+-- from employees
+-- order by emp_id;
+
+Q4. Total Amount
+SQL
+Unsolved
+feature icon
+Using hints is now penalty free
+Use Hint
+Problem Description:
+
+Write a query to calculate the sub_total for each order, return the details of the orderNumber, productCode, and sub_total.
+
+Table: orderdetails
+
+Schema
+
+Note:
+
+Round off the sub_total up to two decimal places.
+Order the output by the orderNumber in ascending order and then by sub_total in descending order.
+Sample Input:
+
+Table: orderdetails
+
+
+
+Sample Output:
+
+
+
+Sample Explanation:
+
+To get the sub_total for each orderNumber, we must multiply the quantityOrdered column with the PriceEach column.
+
+
+
+
+/* YOUR QUERY GOES HERE
+   Example: SELECT * FROM orderdetails; 
+*/
+
+
+Q5. Employee 101
+SQL
+Solved
+feature icon
+Using hints is now penalty free
+Use Hint
+Problem Statement:
+
+Write a query to get all the details of all the employees from job_history except for the employee with id 101
+
+Return all the fields.
+Return the result ordered by employee_id and job_id in ascending order.
+
+Table: job_history
+Schema
+
+
+Sample Input:
+
+Table: job_history
+
+
+
+Sample output:
+
+
+
+Explanation: The above table shows all the employees which do not have an employee_id 101 and is ordered by employee_id and job_id in ascending order.
+
+/* YOUR QUERY GOES HERE
+   Example: SELECT * FROM employees; 
+*/
+SELECT * FROM job_history
+where
+employee_id != 101 
+order by employee_id , job_id ; 
+
+
